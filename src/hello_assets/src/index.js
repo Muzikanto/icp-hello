@@ -1,4 +1,4 @@
-import { hello } from "../../declarations/hello";
+import { get, set } from "../../declarations/hello";
 
 document.querySelector("form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -14,7 +14,7 @@ document.querySelector("form").addEventListener("submit", async (e) => {
   document.getElementById("name").setAttribute("disabled", true);
 
   // Interact with foo actor, calling the greet method
-  const greeting = await hello.greet(name);
+  const greeting = await hello.set(name);
 
   loader.style.visibility = "hidden";
   button.removeAttribute("disabled");

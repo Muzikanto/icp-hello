@@ -17499,7 +17499,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "init": () => (/* binding */ init)
 /* harmony export */ });
 const idlFactory = ({ IDL }) => {
-  return IDL.Service({ 'greet' : IDL.Func([IDL.Text], [IDL.Text], ['query']) });
+  return IDL.Service({
+    'get' : IDL.Func([], [IDL.Text], ['query']),
+    'set' : IDL.Func([IDL.Text], [IDL.Text], []),
+  });
 };
 const init = ({ IDL }) => { return []; };
 
@@ -17674,7 +17677,7 @@ document.querySelector("form").addEventListener("submit", async (e) => {
   document.getElementById("name").setAttribute("disabled", true);
 
   // Interact with foo actor, calling the greet method
-  const greeting = await _declarations_hello__WEBPACK_IMPORTED_MODULE_0__.hello.greet(name);
+  const greeting = await hello.set(name);
 
   loader.style.visibility = "hidden";
   button.removeAttribute("disabled");

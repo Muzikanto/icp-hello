@@ -22,6 +22,11 @@ install: build
 upgrade: build
 	dfx canister install --all --mode=upgrade
 
+.PHONY: reinstall
+.SILENT: reinstall
+reinstall: build
+	dfx canister install --all --mode=reinstall
+
 .PHONY: test
 .SILENT: test
 test: install
